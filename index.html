@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Nuviq — Matuska Family Dog Guide</title>
+<!--
+  ─────────────────────────────────────────────────────────────
+  PHOTOS TO ADD (replace each .photo placeholder):
+    • Bowl of food   • Water containers
+    • Cornishon field gate   • Crescenta Valley dog park entrance
+    • Fire-road leash+muzzle unit   • Off-leash e-collar+remote unit
+    • Brown poop bin
+  To add a photo: drop the image in this folder and replace the
+  matching <div class="photo">…</div> with:
+    <img class="photo" src="myphoto.jpg" alt="...">
+  PHONE NUMBERS TO FILL: search for [ADD …] below.
+  ─────────────────────────────────────────────────────────────
+-->
+<style>
+:root{
+  --cream:#FFF7EC; --card:#FFFFFF; --sand:#FDEFD8;
+  --sun:#FF9F1C; --coral:#FF6B4A; --teal:#17B7A6; --sky:#3BA7DB;
+  --leaf:#5DA832; --grape:#7A6CC9;
+  --ink:#3C2A1E; --ink2:#7C6A5A; --ink3:#A99A88;
+  --line:rgba(60,42,30,0.12); --line2:rgba(60,42,30,0.22);
+  --rad:14px; --rad-sm:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(1200px 500px at 15% -5%, #FFE8C2 0%, rgba(255,232,194,0) 55%),
+    radial-gradient(1000px 500px at 100% 0%, #CFF2EC 0%, rgba(207,242,236,0) 50%),
+    var(--cream);
+  min-height:100vh;
+}
+#wrap{max-width:720px;margin:0 auto;padding:18px 14px 60px;}
+
+/* ---------- header ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#FFB347 0%,#FF8657 45%,#FF6B6B 100%);
+  border-radius:20px;padding:20px 20px;color:#fff;
+  box-shadow:0 10px 30px rgba(255,120,70,0.28);
+}
+.hero:after{content:"☀️";position:absolute;top:-14px;right:-6px;font-size:90px;opacity:0.18;}
+.hero-top{display:flex;align-items:center;gap:14px;}
+.avatar{width:58px;height:58px;border-radius:50%;background:rgba(255,255,255,0.9);
+  display:flex;align-items:center;justify-content:center;font-size:30px;flex-shrink:0;
+  box-shadow:0 4px 12px rgba(0,0,0,0.15);}
+.pname{font-size:22px;font-weight:800;letter-spacing:-0.3px;}
+.psub{font-size:12.5px;opacity:0.95;margin-top:3px;font-weight:500;}
+.pills{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px;}
+.pill{font-size:11px;padding:4px 11px;border-radius:20px;font-weight:600;
+  background:rgba(255,255,255,0.22);color:#fff;backdrop-filter:blur(4px);}
+
+/* ---------- quick nav ---------- */
+.nav{position:sticky;top:0;z-index:20;display:flex;gap:7px;overflow-x:auto;
+  padding:11px 2px;margin:6px 0 4px;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.nav::-webkit-scrollbar{display:none;}
+.nav a{flex:0 0 auto;font-size:12.5px;font-weight:600;text-decoration:none;
+  padding:7px 14px;border-radius:20px;background:var(--card);color:var(--ink2);
+  border:1px solid var(--line);white-space:nowrap;transition:.15s;}
+.nav a:hover{background:var(--sun);color:#fff;border-color:var(--sun);}
+
+/* ---------- sections ---------- */
+.sec{background:var(--card);border:1px solid var(--line);border-radius:var(--rad);
+  padding:16px 16px;margin-bottom:14px;box-shadow:0 2px 10px rgba(60,42,30,0.04);
+  scroll-margin-top:64px;}
+.sec-h{display:flex;align-items:center;gap:9px;margin-bottom:13px;}
+.sec-ic{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;
+  justify-content:center;font-size:16px;flex-shrink:0;}
+.sec-t{font-size:16.5px;font-weight:800;letter-spacing:-0.2px;}
+.sec-sub{font-size:12px;color:var(--ink2);margin:-6px 0 12px;}
+.band{height:4px;border-radius:4px;margin:-16px -16px 14px;
+  background:linear-gradient(90deg,var(--sun),var(--coral));}
+.band.b-teal{background:linear-gradient(90deg,var(--teal),var(--sky));}
+.band.b-leaf{background:linear-gradient(90deg,var(--leaf),var(--teal));}
+.band.b-grape{background:linear-gradient(90deg,var(--grape),var(--sky));}
+.band.b-coral{background:linear-gradient(90deg,var(--coral),var(--sun));}
+
+/* ---------- calendar ---------- */
+.cal-months{display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-bottom:14px;}
+.cal-mo{display:flex;align-items:center;gap:9px;}
+.cal-mo .swatch{width:18px;height:18px;border-radius:6px;border:1px solid var(--line2);}
+.sw-a{background:#FBE7C7;} .sw-b{background:#CDEBE4;}
+.cal-mo .mlabel{font-size:26px;font-weight:800;letter-spacing:-0.6px;line-height:1;}
+.cal-mo .myear{font-size:12px;color:var(--ink2);font-weight:600;}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;}
+.cal-cell{min-height:66px;border-radius:9px;border:1px solid var(--line);
+  padding:5px 4px;display:flex;flex-direction:column;overflow:hidden;}
+.cal-cell.m-a{background:#FDEFD8;}
+.cal-cell.m-b{background:#E1F4EF;border-color:rgba(23,183,166,0.35);}
+.cal-dow{font-size:9px;font-weight:700;color:var(--ink3);text-transform:uppercase;}
+.cal-num{font-size:14px;font-weight:800;line-height:1;margin-top:1px;}
+.cal-cell.today{background:linear-gradient(135deg,#FFB347,#FF6B6B);border-color:transparent;}
+.cal-cell.today .cal-dow,.cal-cell.today .cal-num{color:#fff;}
+.cal-evs{display:flex;flex-direction:column;gap:2px;margin-top:4px;}
+.cev{font-size:8.5px;font-weight:700;line-height:1.15;border-radius:5px;padding:2px 3px;}
+.cev.c-vaccine{background:#FFDDD3;color:#8A3013;}
+.cev.c-med{background:#CFF2EC;color:#0B5D53;}
+.cev.c-exam{background:#D6ECF9;color:#0C4E7C;}
+.cev.c-admin{background:#E4E0F6;color:#463B8F;}
+.cal-cell.today .cev{background:rgba(255,255,255,0.85);}
+.cal-legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:13px;font-size:11px;color:var(--ink2);}
+.cal-legend span{display:inline-flex;align-items:center;gap:5px;}
+.lchip{width:11px;height:11px;border-radius:4px;}
+.up-list{margin-top:16px;border-top:1px dashed var(--line2);padding-top:13px;}
+.up-h{font-size:11px;font-weight:700;color:var(--ink3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
+.up{display:flex;align-items:flex-start;gap:11px;padding:9px 0;border-bottom:1px solid var(--line);}
+.up:last-child{border-bottom:0;}
+.up-chip{flex:0 0 auto;width:52px;text-align:center;border-radius:9px;padding:6px 0;background:var(--sand);}
+.up-chip .m{font-size:9px;font-weight:800;text-transform:uppercase;color:var(--coral);}
+.up-chip .d{font-size:17px;font-weight:800;line-height:1;}
+.up-main{flex:1;}
+.up-name{font-size:13.5px;font-weight:700;}
+.up-note{font-size:11.5px;color:var(--ink2);margin-top:2px;}
+.up-when{font-size:11px;font-weight:700;color:var(--sky);white-space:nowrap;margin-top:3px;}
+
+/* ---------- schedule timeline ---------- */
+.tl{position:relative;padding-left:26px;}
+.tl:before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;
+  background:linear-gradient(var(--sun),var(--teal));border-radius:2px;}
+.tl-row{position:relative;padding:8px 0;}
+.tl-row:before{content:"";position:absolute;left:-21px;top:12px;width:11px;height:11px;
+  border-radius:50%;background:var(--card);border:2.5px solid var(--sun);}
+.tl-time{font-size:12px;font-weight:800;color:var(--coral);}
+.tl-what{font-size:13.5px;font-weight:600;margin-top:1px;}
+.tl-note{font-size:12px;color:var(--ink2);margin-top:1px;}
+
+/* ---------- schedule columns ---------- */
+.sched{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+@media(max-width:560px){.sched{grid-template-columns:1fr;}}
+.scol{background:var(--sand);border-radius:var(--rad-sm);padding:4px 4px 8px;}
+.scol-h{font-size:13px;font-weight:800;color:#fff;padding:8px 11px;border-radius:8px;margin-bottom:4px;}
+.sh-morning{background:linear-gradient(135deg,#FFB347,#FF8657);}
+.sh-afternoon{background:linear-gradient(135deg,#FF8657,#FF6B6B);}
+.sh-evening{background:linear-gradient(135deg,#7A6CC9,#3BA7DB);}
+.srow{padding:8px 11px;border-bottom:1px solid var(--line);}
+.srow:last-child{border-bottom:0;}
+.stime{font-size:11px;font-weight:800;color:var(--coral);}
+.swhat{font-size:13px;font-weight:700;margin-top:1px;}
+.snote{font-size:11.5px;color:var(--ink2);line-height:1.5;margin-top:2px;}
+
+/* ---------- generic rows / cards ---------- */
+.item{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);}
+.item:last-child{border-bottom:0;}
+.item-ic{flex:0 0 auto;width:36px;height:36px;border-radius:10px;display:flex;
+  align-items:center;justify-content:center;font-size:18px;}
+.bg-sun{background:#FFEECB;} .bg-teal{background:#CFF2EC;} .bg-sky{background:#D6ECF9;}
+.bg-coral{background:#FFDDD3;} .bg-leaf{background:#E1F0CE;} .bg-grape{background:#E4E0F6;}
+.item-b{flex:1;}
+.item-t{font-size:14px;font-weight:700;}
+.item-d{font-size:12.5px;color:var(--ink2);line-height:1.55;margin-top:2px;}
+.item-r{flex:0 0 auto;text-align:right;font-size:12px;color:var(--ink2);}
+.addr{display:inline-block;font-size:12.5px;color:var(--sky);text-decoration:none;font-weight:600;}
+.addr:hover{text-decoration:underline;}
+.tag{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 9px;border-radius:20px;margin-right:5px;}
+.t-off{background:#E1F0CE;color:#3A6410;} .t-on{background:#FFDDD3;color:#8A3013;}
+.t-easy{background:#D6ECF9;color:#0C4E7C;} .t-hard{background:#FFEECB;color:#8A5406;}
+.prose{font-size:13.5px;line-height:1.7;color:var(--ink);}
+.prose strong{color:var(--coral);}
+.callout{background:var(--sand);border-radius:var(--rad-sm);padding:11px 13px;
+  font-size:12.5px;line-height:1.65;color:var(--ink);margin-top:11px;
+  border-left:4px solid var(--sun);}
+.callout.warn{border-left-color:var(--coral);background:#FFF0EB;}
+
+/* ---------- photo placeholders ---------- */
+.photo{width:100%;border-radius:var(--rad-sm);object-fit:cover;display:block;}
+div.photo{aspect-ratio:16/10;background:repeating-linear-gradient(45deg,#FDEFD8,#FDEFD8 12px,#FBE7C7 12px,#FBE7C7 24px);
+  border:2px dashed var(--line2);display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:5px;color:var(--ink2);text-align:center;padding:10px;}
+div.photo .pi{font-size:26px;opacity:.75;}
+div.photo .pt{font-size:11.5px;font-weight:700;}
+.mapfig{margin:12px 0 4px;}
+.mapfig .photo{max-height:520px;object-fit:contain;background:var(--sand);}
+.mapcap{font-size:11.5px;color:var(--ink2);line-height:1.55;margin-top:7px;}
+.photo-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;}
+@media(max-width:520px){.photo-row{grid-template-columns:1fr;}}
+
+/* ---------- contacts ---------- */
+.people{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+@media(max-width:520px){.people{grid-template-columns:1fr;}}
+.pcard{background:var(--sand);border-radius:var(--rad-sm);padding:12px 13px;}
+.pcard .who{font-size:14px;font-weight:800;}
+.pcard .role{font-size:11.5px;color:var(--ink2);margin:2px 0 6px;}
+.pcard a{font-size:13px;color:var(--sky);text-decoration:none;font-weight:600;display:block;}
+
+/* ---------- vet / insurance ---------- */
+.grid2{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:4px;}
+@media(max-width:520px){.grid2{grid-template-columns:repeat(2,1fr);}}
+.kv{background:var(--sand);border-radius:var(--rad-sm);padding:9px 11px;}
+.kv .k{font-size:10px;color:var(--ink3);text-transform:uppercase;letter-spacing:.05em;font-weight:700;}
+.kv .v{font-size:14px;font-weight:800;margin-top:2px;}
+.btn{display:inline-block;margin-top:12px;background:var(--teal);color:#fff;font-weight:700;
+  font-size:13px;padding:10px 18px;border-radius:22px;text-decoration:none;}
+.btn:hover{background:#119c8d;}
+.hours{font-size:12.5px;color:var(--ink2);line-height:1.7;margin-top:10px;}
+
+footer{text-align:center;font-size:11.5px;color:var(--ink3);margin-top:26px;line-height:1.7;}
+footer .paw{font-size:16px;}
+</style>
+</head>
+<body>
+<div id="wrap">
+
+  <!-- ====================== HEADER ====================== -->
+  <div class="hero">
+    <div class="hero-top">
+      <div class="avatar">🐕</div>
+      <div style="flex:1">
+        <div class="pname">Nuviq Matuska</div>
+        <div class="psub">Yellow Lab · Neutered Male · Born Sep 19, 2024 · <span id="age">—</span> · 63.4 lbs · La Cañada, CA</div>
+      </div>
+    </div>
+    <div class="pills">
+      <span class="pill">🔆 Very high energy</span>
+      <span class="pill">🦴 6–9 AM · 3–8 PM active</span>
+      <span class="pill">🛡️ Pumpkin insured</span>
+      <span class="pill">🌾 Allergy watch</span>
+    </div>
+  </div>
+
+  <!-- ====================== QUICK NAV ====================== -->
+  <nav class="nav">
+    <a href="#schedule">⏰ Daily plan</a>
+    <a href="#feeding">🍖 Feeding</a>
+    <a href="#walking">🦮 How to walk</a>
+    <a href="#activities">🥾 Activities</a>
+    <a href="#etiquette">💩 Etiquette</a>
+    <a href="#calendar">📅 Calendar</a>
+    <a href="#contacts">📇 Contacts</a>
+    <a href="#neighbors">🏡 Neighbors</a>
+    <a href="#vet">🏥 Vet</a>
+    <a href="#insurance">🛡️ Insurance</a>
+  </nav>
+
+  <!-- ====================== DAILY SCHEDULE ====================== -->
+  <section class="sec" id="schedule">
+    <div class="band b-teal"></div>
+    <div class="sec-h"><div class="sec-ic bg-teal">⏰</div><div class="sec-t">Nuvi's daily schedule</div></div>
+    <div class="sched">
+      <div class="scol">
+        <div class="scol-h sh-morning">🌅 Morning</div>
+        <div class="srow"><div class="stime">6:00–7:00 AM</div><div class="swhat">Wake up</div><div class="snote">Up between 6 and 7. Out to pee first thing.</div></div>
+        <div class="srow"><div class="stime">~7:00 AM</div><div class="swhat">Breakfast</div><div class="snote">2 cups raw meat (see feeding).</div></div>
+        <div class="srow"><div class="stime">Morning</div><div class="swhat">Long walk — 40 to 70 min</div><div class="snote">The big daily outing. Fire road or trail.</div></div>
+        <div class="srow"><div class="stime">Midday</div><div class="swhat">Home &amp; sleep</div><div class="snote">Rests / naps through the middle of the day.</div></div>
+      </div>
+      <div class="scol">
+        <div class="scol-h sh-afternoon">🌇 Afternoon</div>
+        <div class="srow"><div class="stime">~3:00 PM</div><div class="swhat">Active again — shorter walk ~30 min</div><div class="snote">Second outing as he gets his energy back.</div></div>
+        <div class="srow"><div class="stime">5:00 PM</div><div class="swhat">Dinner</div><div class="snote">2 cups raw meat.</div></div>
+      </div>
+      <div class="scol">
+        <div class="scol-h sh-evening">🌙 After dinner</div>
+        <div class="srow"><div class="stime">After dinner</div><div class="swhat">Play time</div><div class="snote">Ball, tug, a bit of fetch in the yard.</div></div>
+        <div class="srow"><div class="stime">7:30 PM</div><div class="swhat">Calming down</div><div class="snote">Wind-down, quieter, settling.</div></div>
+        <div class="srow"><div class="stime">8:30 PM</div><div class="swhat">Bed in the cage</div><div class="snote">Say the command <strong>"bed,"</strong> give a little treat, and latch the gate.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== FEEDING ====================== -->
+  <section class="sec" id="feeding">
+    <div class="band b-coral"></div>
+    <div class="sec-h"><div class="sec-ic bg-sun">🍖</div><div class="sec-t">Feeding</div></div>
+    <div class="sec-sub">Twice a day — breakfast (~7 AM) and dinner (~5 PM).</div>
+    <div class="prose">
+      Each meal is <strong>2 cups of raw meat</strong>. Sometimes add a little <strong>fish oil</strong>,
+      and sometimes <strong>2 slices of boiled sweet potato</strong> on top of the raw meat.
+    </div>
+    <div class="callout">
+      <strong>Defrosting:</strong> when the current meat container looks like it's down to about the last
+      meal, take the next container out of the fridge and put it in the <strong>sink overnight to defrost</strong>
+      so it's ready for the next day.
+    </div>
+    <div class="callout warn">
+      <strong>Running low? Harmony Farms.</strong> Buy <strong>only beef and pork — never poultry</strong>
+      (poultry gives him diarrhea).<br>
+      📍 <a class="addr" href="https://maps.google.com/?q=Harmony+Farms+2824+Foothill+Blvd+La+Crescenta+CA+91214">2824 Foothill Blvd, La Crescenta, CA 91214</a>
+      · 📞 <a class="addr" href="tel:8182483068">818-248-3068</a>
+    </div>
+    <div class="photo-row">
+      <!-- Replace with: <img class="photo" src="bowl.jpg" alt="Bowl of food"> -->
+      <div class="photo"><span class="pi">🥣</span><span class="pt">Photo: bowl full of food</span></div>
+      <!-- Replace with: <img class="photo" src="water.jpg" alt="Water containers"> -->
+      <div class="photo"><span class="pi">💧</span><span class="pt">Photo: water containers</span></div>
+    </div>
+    <div class="callout" style="font-size:9.5px;line-height:1.5;padding:8px 10px;margin-top:10px;">
+      <strong>If diarrhea:</strong> cut the portion in half and add plain pumpkin purée on top until his stool is back to normal.
+      You can also feed <strong>rice and plain boiled chicken meat</strong>. <strong>Never any poultry bones</strong> — danger of getting stuck in the intestine.
+    </div>
+  </section>
+
+  <!-- ====================== HOW TO WALK HIM ====================== -->
+  <section class="sec" id="walking">
+    <div class="band b-teal"></div>
+    <div class="sec-h"><div class="sec-ic bg-teal">🦮</div><div class="sec-t">How to walk Nuvi</div></div>
+
+    <div class="item"><div class="item-ic bg-sky">🏙️</div><div class="item-b">
+      <div class="item-t">In town — sidewalks &amp; streets</div>
+      <div class="item-d">Use the <strong>leather leash with the spiky collar</strong>. He pulls much less with it.</div>
+      <div class="photo-row" style="grid-template-columns:1fr;margin-top:10px;">
+        <!-- Replace with: <img class="photo" src="leather-leash.jpg" alt="Leather leash"> -->
+        <div class="photo" style="aspect-ratio:16/7;"><span class="pi">🪢</span><span class="pt">Photo: leather leash + spiky collar</span></div>
+      </div></div></div>
+
+    <div class="item"><div class="item-ic bg-leaf">⛰️</div><div class="item-b">
+      <div class="item-t">Behind home — fire roads</div>
+      <div class="item-d">Two options here:</div>
+      <div style="margin-top:8px">
+        <div style="font-size:13px;font-weight:700;margin-bottom:2px;">🟠 On leash</div>
+        <div class="item-d">Orange <strong>self-retractable long leash</strong> + <strong>mouth mask/muzzle</strong> (so he doesn't eat junk off the ground).</div>
+      </div>
+      <div style="margin-top:9px">
+        <div style="font-size:13px;font-weight:700;margin-bottom:2px;">⚡ Off leash</div>
+        <div class="item-d">The <strong>electric collar</strong> + <strong>mask</strong> — and take the <strong>remote</strong>.</div>
+      </div>
+    </div></div>
+
+    <div class="photo-row">
+      <!-- Replace with: <img class="photo" src="leash-onleash.jpg" alt="On-leash unit"> -->
+      <div class="photo"><span class="pi">🟠</span><span class="pt">Photo: on-leash unit<br>(orange retractable + muzzle)</span></div>
+      <!-- Replace with: <img class="photo" src="ecollar.jpg" alt="Off-leash unit"> -->
+      <div class="photo"><span class="pi">⚡</span><span class="pt">Photo: off-leash unit<br>(e-collar + mask + remote)</span></div>
+    </div>
+  </section>
+
+  <!-- ====================== ACTIVITIES ====================== -->
+  <section class="sec" id="activities">
+    <div class="band b-coral"></div>
+    <div class="sec-h"><div class="sec-ic bg-sun">🥾</div><div class="sec-t">Where to take him</div></div>
+
+    <div class="item"><div class="item-ic bg-leaf">⛰️</div><div class="item-b">
+      <div class="item-t">Hike up the hill — Hillard Canyon</div>
+      <div class="item-d"><span class="tag t-hard">Hard</span> Up the hill, about <strong>1 mile up</strong>, roughly <strong>50 min</strong>. The big-effort option.</div>
+      <figure class="mapfig">
+        <img class="photo" src="hillard-map.jpg" alt="Earl Canyon Mtwy trail map with waypoints and distances">
+        <figcaption class="mapcap"><strong>Trail map</strong> — Earl Canyon Mtwy from Home. All distances are one way: Lookout above the house 0.4 mi · Big lookout 1.0 mi · Single-track start 2.0 mi · Concrete platform 2.2 mi · "THE left turn" 0.83 mi · Ex-swing 0.5 mi · 2nd yellow gate 300 yd · waterfall via Hall-Beckley Canyon.</figcaption>
+      </figure>
+    </div></div>
+
+    <div class="item"><div class="item-ic bg-sky">💦</div><div class="item-b">
+      <div class="item-t">Waterfall</div>
+      <div class="item-d"><span class="tag t-easy">Medium</span> Around <strong>30 min</strong>.</div></div></div>
+
+    <div class="item"><div class="item-ic bg-teal">🚶</div><div class="item-b">
+      <div class="item-t">On the sidewalk</div>
+      <div class="item-d"><span class="tag t-easy">Easy</span> A regular neighborhood walk on the streets — no rush, can be a normal-length outing.</div></div></div>
+
+    <div class="item"><div class="item-ic bg-sun">⚾</div><div class="item-b">
+      <div class="item-t">Cornishon baseball field</div>
+      <div class="item-d"><span class="tag t-off">Off-leash</span> Below the tennis courts — great for ball catching.<br>
+      📍 <a class="addr" href="https://maps.google.com/?q=4322+Cornishon+Ave+La+Ca%C3%B1ada+Flintridge+CA+91011">4322 Cornishon Ave, La Cañada Flintridge, CA 91011</a></div>
+      <div class="photo-row" style="grid-template-columns:1fr;margin-top:10px;">
+        <img class="photo" src="cornishon-gate.jpg" alt="Cornishon Field gate" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="photo" style="aspect-ratio:16/7;display:none;"><span class="pi">🚪</span><span class="pt">Photo: the gate — save as cornishon-gate.jpg</span></div>
+      </div>
+    </div></div>
+
+    <div class="item"><div class="item-ic bg-grape">🐾</div><div class="item-b">
+      <div class="item-t">Crescenta Valley Dog Park</div>
+      <div class="item-d"><span class="tag t-off">Off-leash</span> In La Crescenta — fenced large-dog area, open 6:30 AM–9 PM.<br>
+      📍 <a class="addr" href="https://maps.google.com/?q=Crescenta+Valley+Dog+Park+3901+Dunsmore+Ave+La+Crescenta+CA+91214">3901 Dunsmore Ave, La Crescenta, CA 91214</a></div>
+      <div class="photo-row" style="grid-template-columns:1fr;margin-top:10px;">
+        <img class="photo" src="dogpark-front.jpg" alt="Crescenta Valley Dog Park" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="photo" style="aspect-ratio:16/7;display:none;"><span class="pi">🚪</span><span class="pt">Photo: the front / entrance — save as dogpark-front.jpg</span></div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- ====================== ETIQUETTE ====================== -->
+  <section class="sec" id="etiquette">
+    <div class="band b-leaf"></div>
+    <div class="sec-h"><div class="sec-ic bg-leaf">💩</div><div class="sec-t">Poop etiquette</div></div>
+    <div class="prose">
+      If he poops <strong>off the trail</strong>, in the vegetation where it isn't visible — no need to pick it up.
+      If it's <strong>on the trail, sidewalk, or anywhere visible</strong>, it must be picked up and placed in the
+      <strong>brown bin</strong>.
+    </div>
+    <div class="photo-row" style="grid-template-columns:1fr;">
+      <!-- Replace with: <img class="photo" src="brownbin.jpg" alt="Brown bin"> -->
+      <div class="photo" style="aspect-ratio:16/7;"><span class="pi">🗑️</span><span class="pt">Photo: the brown bin</span></div>
+    </div>
+  </section>
+
+  <!-- ====================== CALENDAR ====================== -->
+  <section class="sec" id="calendar">
+    <div class="band"></div>
+    <div class="sec-h"><div class="sec-ic bg-coral">📅</div><div class="sec-t">Live calendar — next 4 weeks</div></div>
+    <div class="sec-sub">Rolls forward automatically every day. Today is <strong id="today-label"></strong>.</div>
+    <div class="cal-months" id="cal-months"></div>
+    <div class="cal-grid" id="cal-grid"></div>
+    <div class="cal-legend">
+      <span><i class="lchip" style="background:#FFDDD3"></i> Vaccine</span>
+      <span><i class="lchip" style="background:#CFF2EC"></i> Medication / care</span>
+      <span><i class="lchip" style="background:#D6ECF9"></i> Exam / test</span>
+      <span><i class="lchip" style="background:#E4E0F6"></i> Admin / insurance</span>
+    </div>
+    <div class="up-list" id="up-list"><div class="up-h">Upcoming</div></div>
+  </section>
+
+
+  <!-- ====================== CONTACTS ====================== -->
+  <section class="sec" id="contacts">
+    <div class="band b-grape"></div>
+    <div class="sec-h"><div class="sec-ic bg-grape">📇</div><div class="sec-t">Family contacts</div></div>
+    <div class="people">
+      <div class="pcard">
+        <div class="who">Jan</div><div class="role">Owner</div>
+        <a href="mailto:lcfjan@gmail.com">lcfjan@gmail.com</a>
+        <a href="tel:8184346105">818-434-6105</a>
+      </div>
+      <div class="pcard">
+        <div class="who">Vilay</div><div class="role">Owner</div>
+        <a href="mailto:vilaym@gmail.com">vilaym@gmail.com</a>
+        <a href="tel:3105626724">(310) 562-6724</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== NEIGHBORS & FRIENDS ====================== -->
+  <section class="sec" id="neighbors">
+    <div class="band b-leaf"></div>
+    <div class="sec-h"><div class="sec-ic bg-leaf">🏡</div><div class="sec-t">Neighbors &amp; friends</div></div>
+    <div class="item"><div class="item-ic bg-leaf">👋</div><div class="item-b">
+      <div class="item-t">Tara &amp; Greg</div>
+      <div class="item-d">Neighbors — know Nuvi well and are a great go-to if you need a hand.<br>📞 <a class="addr" href="tel:2133056010">(213) 305-6010</a> (Tara) · <a class="addr" href="tel:9095310683">(909) 531-0683</a> (Greg)</div></div></div>
+    <div class="item"><div class="item-ic bg-leaf">🤝</div><div class="item-b">
+      <div class="item-t">Lydia</div>
+      <div class="item-d">Friend — knows Nuvi and will probably stop by. <span style="color:var(--ink3)">[ADD phone]</span></div></div></div>
+  </section>
+
+  <!-- ====================== VET ====================== -->
+  <section class="sec" id="vet">
+    <div class="band b-teal"></div>
+    <div class="sec-h"><div class="sec-ic bg-teal">🏥</div><div class="sec-t">Vet — Crescenta Cañada Pet Hospital</div></div>
+    <div class="sec-sub">Nuvi's vet: <strong>Dr. Fiona Dodson</strong> (Medical Director) · AAHA-accredited, open 7 days.</div>
+    <div class="grid2">
+      <div class="kv"><div class="k">Phone / text</div><div class="v"><a class="addr" style="font-size:14px" href="tel:8182483963">(818) 248-3963</a></div></div>
+      <div class="kv"><div class="k">Email</div><div class="v" style="font-size:12px"><a class="addr" href="mailto:email@ccpet.com">email@ccpet.com</a></div></div>
+      <div class="kv"><div class="k">Patient ID</div><div class="v">160041</div></div>
+    </div>
+    <div class="callout">
+      📍 <a class="addr" href="https://maps.google.com/?q=Crescenta+Ca%C3%B1ada+Pet+Hospital+3502+Foothill+Blvd+La+Crescenta+CA+91214">3502 Foothill Blvd, La Crescenta, CA 91214</a>
+    </div>
+    <div class="hours">
+      <strong>Hours:</strong><br>
+      Mon–Wed 8:00 AM – 6:00 PM · Thu 8:00 AM – 9:00 PM<br>
+      Fri 8:00 AM – 6:00 PM · Sat 8:00 AM – 5:00 PM · Sun 10:00 AM – 5:00 PM
+    </div>
+    <a class="btn" href="https://portal.chckup.app/book/crescenta-canada-pet-hospital?booking_source=Website">Book appointment ↗</a>
+
+    <div class="sec-h" style="margin-top:20px;"><div class="sec-ic bg-coral">💊</div><div class="sec-t" style="font-size:15px;">Medical &amp; IDs</div></div>
+    <div class="item"><div class="item-ic bg-teal">💊</div><div class="item-b"><div class="item-t">Credelio Quattro Blue (50.1–100 lbs)</div><div class="item-d">Flea, tick, heartworm &amp; worms · monthly on the 19th · give with food.</div></div></div>
+    <div class="item"><div class="item-ic bg-teal">👂</div><div class="item-b"><div class="item-t">Ear care — wipe + TrizUltra + Keto drops</div><div class="item-d">Every 2 weeks (Fridays) · wipe first, then drops. Important with his allergy.</div></div></div>
+    <div class="item"><div class="item-ic bg-coral">🩺</div><div class="item-b"><div class="item-t">Cytopoint injection (allergy)</div><div class="item-d">Atopic/environmental allergy (diagnosed Mar 2026) · lasts 4–8 wks. Watch for scratching, paw licking, ear head-shaking, red belly — rebook if it returns.</div></div></div>
+    <div class="item"><div class="item-ic bg-sky">🆔</div><div class="item-b"><div class="item-t">IDs</div><div class="item-d">Microchip 956000017638680 · AKC SS49284803 · License DocuPet #2193853 (Pasadena Humane).</div></div></div>
+  </section>
+
+  <!-- ====================== INSURANCE ====================== -->
+  <section class="sec" id="insurance">
+    <div class="band b-grape"></div>
+    <div class="sec-h"><div class="sec-ic bg-grape">🛡️</div><div class="sec-t">Pumpkin pet insurance</div></div>
+    <div class="callout" style="border-left-color:var(--teal);background:#E7F7F3;">
+      <strong>Deductible met — Pumpkin pays 90% until Dec 23, 2026.</strong> Submit every vet invoice; you only pay 10% of covered costs.
+    </div>
+    <div class="grid2">
+      <div class="kv"><div class="k">Provider</div><div class="v">Pumpkin</div></div>
+      <div class="kv"><div class="k">Reimbursement</div><div class="v">90%</div></div>
+      <div class="kv"><div class="k">Deductible</div><div class="v">$500 ✓</div></div>
+      <div class="kv"><div class="k">Annual limit</div><div class="v">Unlimited</div></div>
+      <div class="kv"><div class="k">Expires</div><div class="v" style="font-size:13px">Dec 23, 2026</div></div>
+      <div class="kv"><div class="k">Account</div><div class="v" style="font-size:12px">PKN42A2F9B48</div></div>
+    </div>
+    <div class="callout">
+      <strong>Covered — always submit:</strong> exams, diagnostics, Cytopoint, ear treatments, surgery, hospitalization, medications.<br>
+      <strong>Check first:</strong> routine vaccines &amp; wellness exams.<br>
+      <strong>Never covered:</strong> tax, medical waste, admin fees (code 1037).
+    </div>
+    <div class="hours">Claims: <a class="addr" href="mailto:claims@pumpkin.care">claims@pumpkin.care</a> · <a class="addr" href="tel:18662736369">1-866-273-6369</a></div>
+  </section>
+
+  <footer>
+    <div class="paw">🐾</div>
+    Nuviq Matuska · Matuska family · La Cañada, CA
+  </footer>
+</div>
+
+<script>
+// ─────────────────────────────────────────────────────────────
+// LIVE AGE — years & months from date of birth, updates daily.
+// ─────────────────────────────────────────────────────────────
+(function liveAge(){
+  const dob=new Date(2024,8,19); // Sep 19, 2024
+  const now=new Date();
+  let months=(now.getFullYear()-dob.getFullYear())*12+(now.getMonth()-dob.getMonth());
+  if(now.getDate()<dob.getDate()) months--;      // not yet reached the day this month
+  const y=Math.floor(months/12), m=months%12;
+  const yTxt=y+' yr'+(y!==1?'s':'');
+  const mTxt=m+' mo';
+  document.getElementById('age').textContent = (y>0? yTxt+' '+mTxt : mTxt);
+})();
+
+// ─────────────────────────────────────────────────────────────
+// LIVE CALENDAR — always shows the next 28 days from "today".
+// Computed from new Date() on every load, so it rolls forward
+// one day automatically each day. Two months in view are shown
+// with large names and different cell colours.
+// ─────────────────────────────────────────────────────────────
+const MON  = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const MON3 = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const DOW  = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+
+// Fixed-date events. date = YYYY-MM-DD, short = label shown in the calendar cell
+const FIXED = [
+  {date:'2026-08-15', cat:'vaccine', short:'💉 Rattlesnake vax + HW test', name:'Rattlesnake vaccine + Heartworm/Lyme/Ehrlichia test', note:'Annual · at Crescenta Cañada'},
+  {date:'2026-09-15', cat:'exam',    short:'🩺 Wellness exam',            name:'Annual wellness exam',          note:'Bundle with vaccine visit'},
+  {date:'2026-10-01', cat:'vaccine', short:'💉 Bordetella + Lepto',       name:'Oral Bordetella + LeptoVax 4',  note:'Annual'},
+  {date:'2026-10-15', cat:'exam',    short:'🩻 OFA hip & elbow x-rays',   name:'OFA hip & elbow x-rays',        note:'Bearpoint guarantee · 24–26 mo of age'},
+  {date:'2026-12-23', cat:'admin',   short:'📄 Insurance renewal',        name:'Pumpkin insurance renewal',     note:'Review before expiry · acct PKN42A2F9B48'},
+  {date:'2027-01-02', cat:'vaccine', short:'💉 Influenza booster',        name:'Canine Influenza booster',      note:'Annual · schedule at Crescenta Cañada'},
+  {date:'2027-01-23', cat:'vaccine', short:'💉 DA2PP booster',            name:'DA2PP combo booster',           note:'Annual · bundle with Influenza'},
+  {date:'2029-01-23', cat:'vaccine', short:'💉 Rabies (3-yr)',            name:'Rabies — 3-year booster',       note:'Upgraded to 3-year Jan 2026'}
+];
+
+function ymd(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function parseD(s){const [y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d);}
+
+// Events occurring on a given Date (recurring rules + fixed)
+function eventsOn(d){
+  const out=[];
+  if(d.getDate()===19) out.push({cat:'med', short:'💊 Credelio', name:'Credelio Quattro (flea/tick/heartworm)', note:'Monthly · give with food'});
+  if(d.getDay()===5){
+    const anchor=parseD('2026-07-17');
+    const diff=Math.round((d-anchor)/86400000);
+    if(diff%14===0) out.push({cat:'med', short:'👂 Ear care', name:'Ear care — wipe + TrizUltra + Keto', note:'Every 2 weeks (Fridays)'});
+  }
+  const key=ymd(d);
+  FIXED.forEach(e=>{ if(e.date===key) out.push(e); });
+  return out;
+}
+
+(function buildCalendar(){
+  const start=new Date(); start.setHours(0,0,0,0);
+  const startMonth=start.getMonth(), startYear=start.getFullYear();
+  document.getElementById('today-label').textContent = DOW[start.getDay()]+', '+MON3[start.getMonth()]+' '+start.getDate()+', '+start.getFullYear();
+
+  // Build 28-day rolling grid + collect months present
+  const grid=document.getElementById('cal-grid');
+  const monthsSeen=[];
+  for(let i=0;i<28;i++){
+    const d=new Date(start); d.setDate(start.getDate()+i);
+    const isCurrentMonth = (d.getMonth()===startMonth && d.getFullYear()===startYear);
+    const mkey=d.getFullYear()+'-'+d.getMonth();
+    if(!monthsSeen.some(m=>m.key===mkey)) monthsSeen.push({key:mkey, m:d.getMonth(), y:d.getFullYear(), cls:isCurrentMonth?'a':'b'});
+    const evs=eventsOn(d);
+    const cell=document.createElement('div');
+    cell.className='cal-cell '+(isCurrentMonth?'m-a':'m-b')+(i===0?' today':'');
+    const evHtml=evs.map(e=>'<div class="cev c-'+e.cat+'">'+e.short+'</div>').join('');
+    cell.innerHTML='<div class="cal-dow">'+DOW[d.getDay()]+'</div><div class="cal-num">'+d.getDate()+'</div><div class="cal-evs">'+evHtml+'</div>';
+    grid.appendChild(cell);
+  }
+
+  // Large month headers with matching swatch colours
+  const mh=document.getElementById('cal-months');
+  monthsSeen.forEach(mo=>{
+    const el=document.createElement('div'); el.className='cal-mo';
+    el.innerHTML='<span class="swatch sw-'+mo.cls+'"></span><span><span class="mlabel">'+MON[mo.m]+'</span> <span class="myear">'+mo.y+'</span></span>';
+    mh.appendChild(el);
+  });
+
+  // Upcoming list — next occurrences within ~7 months, first 8 shown
+  const horizon=new Date(start); horizon.setDate(start.getDate()+220);
+  const occ=[];
+  for(let d=new Date(start); d<=horizon; d.setDate(d.getDate()+1)){
+    eventsOn(new Date(d)).forEach(e=>occ.push(Object.assign({date:new Date(d)}, e)));
+  }
+  occ.sort((a,b)=>a.date-b.date);
+  const list=document.getElementById('up-list');
+  occ.slice(0,8).forEach(e=>{
+    const days=Math.round((e.date-start)/86400000);
+    const when = days===0?'Today' : days===1?'Tomorrow' : 'in '+days+' days';
+    const row=document.createElement('div'); row.className='up';
+    row.innerHTML='<div class="up-chip"><div class="m">'+MON3[e.date.getMonth()]+'</div><div class="d">'+e.date.getDate()+'</div></div>'+
+      '<div class="up-main"><div class="up-name">'+e.name+'</div><div class="up-note">'+(e.note||'')+'</div></div>'+
+      '<div class="up-when">'+when+'</div>';
+    list.appendChild(row);
+  });
+})();
+</script>
+</body>
+</html>
