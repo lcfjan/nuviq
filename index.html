@@ -65,6 +65,24 @@ body{
   padding:7px 14px;border-radius:20px;background:var(--card);color:var(--ink2);
   border:1px solid var(--line);white-space:nowrap;transition:.15s;}
 .nav a:hover{background:var(--sun);color:#fff;border-color:var(--sun);}
+.nav a.ntab-em{background:#FFE1DB;color:#B3311A;border-color:#F1B4A6;font-weight:800;}
+.nav a.ntab-em:hover{background:#E24B4A;color:#fff;border-color:#E24B4A;}
+.nav a.ntab-star{background:#FFF0CC;color:#8A5406;border-color:#F0CE84;font-weight:800;}
+.nav a.ntab-star:hover{background:var(--sun);color:#fff;}
+
+/* quick start + emergency cards */
+.qs-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px;}
+@media(max-width:520px){.qs-grid{grid-template-columns:1fr;}}
+.qs{background:var(--sand);border-radius:var(--rad-sm);padding:11px 13px;}
+.qs .qh{font-size:12.5px;font-weight:800;margin-bottom:4px;}
+.qs .qd{font-size:12px;color:var(--ink2);line-height:1.55;}
+.qs .qd strong{color:var(--coral);}
+.emstrip{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px;}
+@media(max-width:520px){.emstrip{grid-template-columns:1fr;}}
+.emcard{border-radius:var(--rad-sm);padding:10px 12px;background:#FFF0EB;border:1px solid #F3C4B6;}
+.emcard .el{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:#B3311A;}
+.emcard a{font-size:13.5px;font-weight:800;color:var(--ink);text-decoration:none;display:block;margin:2px 0;}
+.emcard .es{font-size:11px;color:var(--ink2);}
 
 /* ---------- sections ---------- */
 .sec{background:var(--card);border:1px solid var(--line);border-radius:var(--rad);
@@ -226,12 +244,16 @@ footer .paw{font-size:16px;}
 
   <!-- ====================== QUICK NAV ====================== -->
   <nav class="nav">
+    <a href="#emergency" class="ntab-em">🚨 Emergency</a>
     <a href="#schedule">⏰ Daily plan</a>
     <a href="#feeding">🍖 Feeding</a>
     <a href="#walking">🦮 How to walk</a>
     <a href="#activities">🥾 Activities</a>
     <a href="#etiquette">💩 Etiquette</a>
+    <a href="#about">🐶 About Nuvi</a>
     <a href="#calendar">📅 Calendar</a>
+    <a href="#house">🏠 House</a>
+    <a href="#area">📍 Area</a>
     <a href="#contacts">📇 Contacts</a>
     <a href="#neighbors">🏡 Neighbors</a>
     <a href="#vet">🏥 Vet</a>
@@ -334,8 +356,8 @@ footer .paw{font-size:16px;}
     <div class="sec-h"><div class="sec-ic bg-sun">🥾</div><div class="sec-t">Where to take him</div></div>
 
     <div class="item"><div class="item-ic bg-leaf">⛰️</div><div class="item-b">
-      <div class="item-t">Hike up the hill — Hillard Canyon</div>
-      <div class="item-d"><span class="tag t-hard">Steeper</span> Up the hill, about <strong>1 mile up</strong>, roughly <strong>50 min</strong>. The big-effort option.</div>
+      <div class="item-t">Hike up the hill — Earl Canyon Motorway</div>
+      <div class="item-d"><span class="tag t-hard">Steeper</span><span class="tag t-off">Leash or off-leash</span> Up the hill, about <strong>1 mile up</strong>, roughly <strong>50 min</strong>. The big-effort option.</div>
       <figure class="mapfig">
         <img class="photo" src="hillard-map.jpg" alt="Earl Canyon Mtwy trail map with waypoints and distances">
         <figcaption class="mapcap"><strong>Trail map</strong> — Earl Canyon Mtwy from Home. All distances are one way: Lookout above the house 0.4 mi · Big lookout 1.0 mi · Single-track start 2.0 mi · Concrete platform 2.2 mi · "THE left turn" 0.83 mi · Ex-swing 0.5 mi · 2nd yellow gate 300 yd · waterfall via Hall-Beckley Canyon.</figcaption>
@@ -343,14 +365,14 @@ footer .paw{font-size:16px;}
     </div></div>
 
     <div class="item"><div class="item-ic bg-sky">🏞️</div><div class="item-b">
-      <div class="item-t">Waterfall</div>
-      <div class="item-d"><span class="tag t-easy">Flat</span> Around <strong>30 min</strong> — a nice and cool walk underneath the oak tree canopy.</div>
+      <div class="item-t">Waterfall — Hall Beckley Canyon</div>
+      <div class="item-d"><span class="tag t-easy">Flat</span><span class="tag t-off">Leash or off-leash</span> Around <strong>30 min</strong> — a nice and cool walk underneath the oak tree canopy.</div>
       <figure class="mapfig"><img class="photo" src="waterfall.jpg" alt="Path past the gate to the waterfall"><figcaption class="mapcap">Past the gate, on the way to the waterfall.</figcaption></figure>
     </div></div>
 
     <div class="item"><div class="item-ic bg-teal">🚶</div><div class="item-b">
       <div class="item-t">On the sidewalk</div>
-      <div class="item-d"><span class="tag t-easy">Easy</span> A regular neighborhood walk on the streets — no rush, can be a normal-length outing.</div></div></div>
+      <div class="item-d"><span class="tag t-easy">Easy</span><span class="tag t-on">Leash</span> A regular neighborhood walk on the streets — no rush, can be a normal-length outing.</div></div></div>
 
     <div class="item"><div class="item-ic bg-sun">⚾</div><div class="item-b">
       <div class="item-t">Cornishon baseball field</div>
@@ -364,7 +386,7 @@ footer .paw{font-size:16px;}
 
     <div class="item"><div class="item-ic bg-grape">🐾</div><div class="item-b">
       <div class="item-t">Crescenta Valley Dog Park</div>
-      <div class="item-d"><span class="tag t-off">Off-leash</span> In La Crescenta — fenced large-dog area, open 6:30 AM–9 PM. He's very friendly with dogs, but mainly with people. Usually <strong>30 min is enough</strong>.<br>
+      <div class="item-d"><span class="tag t-off">Off-leash</span> In La Crescenta — open 6:30 AM–9 PM. Use the <strong>left side — that's the large-dog area</strong>. He's very friendly with dogs, but mainly with people. Usually <strong>30 min is enough</strong>.<br>
       📍 <a class="addr" href="https://maps.google.com/?q=Crescenta+Valley+Dog+Park+3901+Dunsmore+Ave+La+Crescenta+CA+91214">3901 Dunsmore Ave, La Crescenta, CA 91214</a></div>
       <div class="photo-row" style="grid-template-columns:1fr;margin-top:10px;">
         <img class="photo" src="dogpark-front.jpg" alt="Crescenta Valley Dog Park" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
@@ -388,6 +410,31 @@ footer .paw{font-size:16px;}
     </div>
   </section>
 
+  <!-- ====================== ABOUT NUVI ====================== -->
+  <section class="sec" id="about">
+    <div class="band b-grape"></div>
+    <div class="sec-h"><div class="sec-ic bg-grape">🐶</div><div class="sec-t">Getting to know Nuvi</div></div>
+    <div class="sec-sub">A friendly, high-energy young Lab (about 2 years old). Loves people most of all, and gets on well with other dogs.</div>
+
+    <div class="item"><div class="item-ic bg-sun">🗣️</div><div class="item-b"><div class="item-t">Commands he knows</div>
+      <div class="item-d"><strong>"Bed"</strong> = go into his crate. He also knows <strong>sit, paw, heel, off,</strong> and <strong>leave</strong> — and his release word is <strong>"go."</strong></div></div></div>
+
+    <div class="item"><div class="item-ic bg-teal">🛋️</div><div class="item-b"><div class="item-t">House manners</div>
+      <div class="item-d">Keep food off counters and low tables — he'll help himself. He's allowed on the <strong>large chairs and sofas in the living room</strong>, and on the <strong>dining chairs when they're pulled away from the table</strong>.</div></div></div>
+
+    <div class="item"><div class="item-ic bg-sky">⏳</div><div class="item-b"><div class="item-t">Being left alone</div>
+      <div class="item-d">He can be home alone from about <strong>9 AM to 2 PM</strong>. Whenever nobody is home, <strong>latch the back door</strong> so he can't get outside. Never leave him outside unattended (coyotes).</div></div></div>
+
+    <div class="item"><div class="item-ic bg-coral">👀</div><div class="item-b"><div class="item-t">What gets him excited</div>
+      <div class="item-d"><strong>Delivery people</strong> (excited in a happy way), and <strong>animal scents — bear, coyote, bobcat</strong>. Keep a firm hold on the leash when he catches a scent.</div></div></div>
+
+    <div class="item"><div class="item-ic bg-leaf">🦴</div><div class="item-b"><div class="item-t">Toys — please read</div>
+      <div class="item-d">Loves his ball, the thrower, and a game of <strong>tug</strong>. He's <strong>not</strong> protective of food or toys. But <strong>do not give him any new toys</strong> — he tends to rip things apart and swallow them. He's already had <strong>three surgeries</strong> to remove objects from his gut (his intestine is now about a foot shorter). <strong>No soft toys, no small toys</strong>, ever.</div></div></div>
+
+    <div class="item"><div class="item-ic bg-sun">🚪</div><div class="item-b"><div class="item-t">Doors &amp; gates</div>
+      <div class="item-d">He doesn't bolt much, but he <strong>can sneak out</strong> — so always check gates are latched and doors are shut behind you.</div></div></div>
+  </section>
+
   <!-- ====================== CALENDAR ====================== -->
   <section class="sec" id="calendar">
     <div class="band"></div>
@@ -404,6 +451,56 @@ footer .paw{font-size:16px;}
     <div class="up-list" id="up-list"><div class="up-h">Upcoming</div></div>
   </section>
 
+
+  <!-- ====================== HOUSE GUIDE ====================== -->
+  <section class="sec" id="house">
+    <div class="band b-teal"></div>
+    <div class="sec-h"><div class="sec-ic bg-teal">🏠</div><div class="sec-t">House guide</div></div>
+    <div class="sec-sub">The home details — Jan / Vilay to fill in the blanks before the stay.</div>
+    <div class="item"><div class="item-ic bg-sky">📶</div><div class="item-b"><div class="item-t">Wi-Fi</div><div class="item-d">Network: <strong>Jan is a cool dude</strong> · Password: <strong>ihatepASSwords</strong></div></div></div>
+    <div class="item"><div class="item-ic bg-sun">🚪</div><div class="item-b"><div class="item-t">Entry — no keys</div><div class="item-d">No keys needed — just use the <strong>back door</strong>. To lock it when you leave, <strong>pull the handle up</strong>.</div></div></div>
+    <div class="item"><div class="item-ic bg-coral">📹</div><div class="item-b"><div class="item-t">Security / cameras</div><div class="item-d">No alarm. There are <strong>4 cameras</strong> — front doorbell, garage, backyard, and his crate. You're welcome to <strong>unplug the crate camera</strong> if you'd prefer.</div></div></div>
+    <div class="item"><div class="item-ic bg-teal">🌡️</div><div class="item-b"><div class="item-t">Air conditioning</div><div class="item-d">Each room has its <strong>own controller</strong>. The living room has <strong>two wall units</strong> — point the <strong>Bosch remote</strong> at <strong>each one</strong> to turn it on/off. Keep the house cool for Nuvi on hot days.</div>
+      <figure class="mapfig" style="text-align:center;"><img class="photo" src="bosch.jpg" alt="Bosch AC remote" style="max-width:240px;max-height:240px;margin:0 auto;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo" style="aspect-ratio:16/9;display:none;"><span class="pi">🎛️</span><span class="pt">Photo: the Bosch AC remote — save as bosch.jpg</span></div></figure></div></div>
+    <div class="item"><div class="item-ic bg-leaf">🗑️</div><div class="item-b"><div class="item-t">Trash &amp; recycling</div><div class="item-d">Picked up <strong>every Monday after 7 AM</strong>. Roll the <strong>brown bin</strong> (green waste &amp; dog poop) down to where the green cans are. <strong>Don't put it out on Sunday</strong> — bears get into it and it's a pain to clean up.</div>
+      <figure class="mapfig"><img class="photo" src="trash-location.jpg" alt="Where to roll the trash bins"><figcaption class="mapcap">Roll the brown bin down to here (by the green cans).</figcaption></figure></div></div>
+    <div class="item"><div class="item-ic bg-grape">🧴</div><div class="item-b"><div class="item-t">Nuvi's supplies</div><div class="item-d">Raw meat lives in the <strong>freezer</strong>; the defrosting one is in the sink/fridge. <strong>Leashes hang on the side of the pool</strong> — the leash has a poop-bag holder, and there's another bag holder on the gate. <strong>Cleaning supplies are under the kitchen sink</strong>.</div></div></div>
+    <div class="item"><div class="item-ic bg-leaf">🧹</div><div class="item-b"><div class="item-t">Housekeeper</div><div class="item-d"><strong>Haydee</strong> usually comes on <strong>Fridays, 8 AM – 12 PM</strong>.</div></div></div>
+    <div class="item"><div class="item-ic bg-sky">🚗</div><div class="item-b"><div class="item-t">Parking &amp; the car</div><div class="item-d">Park <strong>right behind our cars</strong>, or next to the large black car below the driveway (that's Greg's). Going to the dog park and don't want to dirty your car? Use our <strong>VW Buzz</strong> — the key fob is in the <strong>kitchen by the food basket</strong>. Nuvi rides in the <strong>second row, on the floor by the sliding door</strong>.</div></div></div>
+  </section>
+
+  <!-- ====================== EMERGENCIES ====================== -->
+  <section class="sec" id="emergency">
+    <div class="band b-coral"></div>
+    <div class="sec-h"><div class="sec-ic bg-coral">🚨</div><div class="sec-t">Emergencies &amp; what-ifs</div></div>
+    <div class="sec-sub">Take a breath, then use the matching step. You can call Jan or Vilay at any hour.</div>
+    <div class="emstrip">
+      <div class="emcard"><div class="el">24-hour ER vet</div><a href="tel:8182447977">VCA Animal Specialty Group · (818) 244-7977</a><div class="es">4641 Colorado Blvd, LA · open 24h</div></div>
+      <div class="emcard"><div class="el">Pet poison control</div><a href="tel:8884264435">ASPCA · (888) 426-4435</a><div class="es">a consult fee may apply</div></div>
+      <div class="emcard"><div class="el">People ER / 911</div><a href="tel:8189522222">USC Verdugo Hills · (818) 952-2222</a><div class="es">1812 Verdugo Blvd, Glendale</div></div>
+      <div class="emcard"><div class="el">Lost dog</div><a href="tel:6267927151">Pasadena Humane · (626) 792-7151</a><div class="es">microchip 956000017638680</div></div>
+    </div>
+    <div class="item"><div class="item-ic bg-coral">🤕</div><div class="item-b"><div class="item-t">He seems sick or hurt</div><div class="item-d">Vomiting, ongoing diarrhea, limping, very low energy, or a swollen/hard belly → call the day vet (CCPH); after hours go to <strong>VCA Animal Specialty Group</strong> (24h). For mild diarrhea, see the feeding note (half portion + pumpkin, or rice &amp; boiled chicken).</div></div></div>
+    <div class="item"><div class="item-ic bg-sun">☠️</div><div class="item-b"><div class="item-t">He ate something he shouldn't</div><div class="item-d">Chocolate, grapes/raisins, xylitol, rat bait, a mushroom, or trash → call ASPCA Poison Control <a class="addr" href="tel:8884264435">(888) 426-4435</a> and the vet. This is exactly why he wears the muzzle on trails.</div></div></div>
+    <div class="item"><div class="item-ic bg-coral">🐍</div><div class="item-b"><div class="item-t">Snake bite</div><div class="item-d">Rattlesnakes live in these foothills. If bitten (yelp, sudden swelling, puncture marks) → straight to <strong>VCA Animal Specialty Group</strong>, call ahead. He's vaccinated against rattlesnake bites, but he still needs monitoring and a call to the vet.</div></div></div>
+    <div class="item"><div class="item-ic bg-sky">🏃</div><div class="item-b"><div class="item-t">He got out / ran off</div><div class="item-d">Call his name calmly — don't chase, he may think it's a game. Check the gates. Call Jan/Vilay right away. He's microchipped (956000017638680) and tagged; contact Pasadena Humane.</div></div></div>
+    <div class="item"><div class="item-ic bg-sun">🥵</div><div class="item-b"><div class="item-t">Too hot</div><div class="item-d">Heavy panting, drooling, wobbliness → shade, water, cool (not ice-cold) wet towels, call the vet. Prevent it: this is why <strong>early walks are better</strong> — walk early morning or late afternoon, and if it's really hot just <strong>shorten the walk</strong> (totally fine). Test the pavement with your hand and always bring water.</div></div></div>
+    <div class="item"><div class="item-ic bg-coral">🔥</div><div class="item-b"><div class="item-t">Wildfire / evacuation</div><div class="item-d">The foothills carry fire risk. If told to evacuate: leash + muzzle Nuvi, grab his food &amp; meds, and go. <span style="color:var(--ink3)">[ADD: go-bag location &amp; where to meet]</span>. Call Jan/Vilay. Watch local alerts (e.g. the Watch Duty app).</div></div></div>
+    <div class="item"><div class="item-ic bg-teal">🌎</div><div class="item-b"><div class="item-t">Earthquake</div><div class="item-d">Drop, cover, hold on. Afterward keep Nuvi leashed (he may be spooked) and check for hazards / a gas smell. The <strong>gas shutoff is seismic-automatic</strong>. The <strong>water shutoff</strong> to the house is <strong>behind the house, next to the little fence</strong> (photo below).</div>
+      <figure class="mapfig"><img class="photo" src="water-shutoff.jpg" alt="Water shutoff behind the house"><figcaption class="mapcap">Water shutoff — behind the house, by the little fence.</figcaption></figure></div></div>
+    <div class="item"><div class="item-ic bg-grape">🔌</div><div class="item-b"><div class="item-t">Power out</div><div class="item-d">The breaker panel is <strong>next to Vilay's office</strong> — the large sliding wall has to be moved out to reach it. <strong>Ask Greg (neighbor) for help.</strong> If it's not quickly solved, call Jan/Vilay.</div></div></div>
+  </section>
+
+  <!-- ====================== AREA ====================== -->
+  <section class="sec" id="area">
+    <div class="band b-leaf"></div>
+    <div class="sec-h"><div class="sec-ic bg-leaf">📍</div><div class="sec-t">Neighborhood essentials</div></div>
+    <div class="sec-sub">La Cañada Flintridge — right at the foot of the San Gabriel Mountains.</div>
+    <div class="item"><div class="item-ic bg-coral">🏥</div><div class="item-b"><div class="item-t">Nearest people ER</div><div class="item-d">USC Verdugo Hills Hospital — <a class="addr" href="https://maps.google.com/?q=USC+Verdugo+Hills+Hospital+1812+Verdugo+Blvd+Glendale+CA+91208">1812 Verdugo Blvd, Glendale</a> · ER <a class="addr" href="tel:8189522222">(818) 952-2222</a> (or 911).</div></div></div>
+    <div class="item"><div class="item-ic bg-teal">🛒</div><div class="item-b"><div class="item-t">Groceries &amp; pharmacy</div><div class="item-d">Trader Joe's, Ralphs and a CVS are all along <strong>Foothill Blvd</strong> in La Cañada, a few minutes away.</div></div></div>
+    <div class="item"><div class="item-ic bg-sun">🦊</div><div class="item-b"><div class="item-t">Wildlife — important</div><div class="item-d"><strong>Coyotes</strong> roam at dawn &amp; dusk — keep Nuvi close and never leave him in the yard alone. <strong>Rattlesnakes</strong> are on the trails spring–fall (keep him leashed/muzzled, don't let him nose into brush). <strong>Bears</strong> and the occasional <strong>mountain lion</strong> pass through — keep trash lids shut. Dry grass hides <strong>foxtails</strong>; check his paws &amp; ears after hikes.</div></div></div>
+    <div class="item"><div class="item-ic bg-sky">☀️</div><div class="item-b"><div class="item-t">Heat</div><div class="item-d">Summer afternoons get hot. Walk morning or evening, bring water, and avoid hot asphalt — if it's too hot for your hand, it's too hot for his paws.</div></div></div>
+  </section>
 
   <!-- ====================== CONTACTS ====================== -->
   <section class="sec" id="contacts">
@@ -482,7 +579,7 @@ footer .paw{font-size:16px;}
       <strong>Check first:</strong> routine vaccines &amp; wellness exams.<br>
       <strong>Never covered:</strong> tax, medical waste, admin fees (code 1037).
     </div>
-    <div class="hours">Claims: <a class="addr" href="mailto:claims@pumpkin.care">claims@pumpkin.care</a> · <a class="addr" href="tel:18662736369">1-866-273-6369</a></div>
+    <div class="hours">Manage the policy &amp; file claims online: <a class="addr" href="https://www.pumpkin.care">pumpkin.care</a></div>
   </section>
 
   <footer>
