@@ -71,11 +71,10 @@ body{
 .nav a{flex:0 0 auto;font-size:12.5px;font-weight:600;text-decoration:none;
   padding:7px 14px;border-radius:20px;background:var(--card);color:var(--ink2);
   border:1px solid var(--line);white-space:nowrap;transition:.15s;}
-.nav a:hover{background:var(--sun);color:#fff;border-color:var(--sun);}
-.nav a.ntab-em{background:#FFE1DB;color:#B3311A;border-color:#F1B4A6;font-weight:800;}
-.nav a.ntab-em:hover{background:#E24B4A;color:#fff;border-color:#E24B4A;}
-.nav a.ntab-star{background:#FFF0CC;color:#8A5406;border-color:#F0CE84;font-weight:800;}
-.nav a.ntab-star:hover{background:var(--sun);color:#fff;}
+.nav a:hover{background:var(--sand);color:var(--ink);border-color:var(--line2);}
+.nav a.active{background:var(--sun);color:#fff;border-color:var(--sun);}
+.nav a.ntab-em{font-weight:800;}
+.nav a.ntab-em.active{background:#E24B4A;color:#fff;border-color:#E24B4A;}
 
 /* quick start + emergency cards */
 .qs-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px;}
@@ -251,7 +250,6 @@ footer .paw{font-size:16px;}
 
   <!-- ====================== QUICK NAV ====================== -->
   <nav class="nav">
-    <a href="#emergency" class="ntab-em">🚨 Emergency</a>
     <a href="#schedule">⏰ Daily plan</a>
     <a href="#feeding">🍖 Feeding</a>
     <a href="#walking">🦮 How to walk</a>
@@ -265,6 +263,7 @@ footer .paw{font-size:16px;}
     <a href="#neighbors">🏡 Neighbors</a>
     <a href="#vet">🏥 Vet</a>
     <a href="#insurance">🛡️ Insurance</a>
+    <a href="#emergency" class="ntab-em">🚨 Emergency</a>
   </nav>
 
   <!-- ====================== DAILY SCHEDULE ====================== -->
@@ -459,7 +458,21 @@ footer .paw{font-size:16px;}
     <div class="sec-h"><div class="sec-ic bg-teal">🏠</div><div class="sec-t">House guide</div></div>
     <div class="sec-sub">The home details — Jan / Vilay to fill in the blanks before the stay.</div>
     <div class="item"><div class="item-ic bg-sky">📶</div><div class="item-b"><div class="item-t">Wi-Fi</div><div class="item-d">Network: <strong>Jan is a cool dude</strong> · Password: <strong>ihatepASSwords</strong></div></div></div>
-    <div class="item"><div class="item-ic bg-sun">🚪</div><div class="item-b"><div class="item-t">Entry — no keys</div><div class="item-d">No keys needed — just use the <strong>back door</strong>. To lock it when you leave, <strong>pull the handle up</strong>.</div></div></div>
+    <div class="item"><div class="item-ic bg-sun">🚪</div><div class="item-b"><div class="item-t">Entry &amp; locking up — no keys</div><div class="item-d">No keys needed — just use the <strong>back door</strong> (to lock it, <strong>pull the handle up</strong>). To lock up the house, lock <strong>3 doors from the inside</strong>: <strong>Vilay's office</strong>, the <strong>guest bathroom</strong>, and the <strong>back main door</strong>. The <strong>front door</strong> just needs to be <strong>pulled closed</strong>.</div></div></div>
+
+    <div class="item"><div class="item-ic bg-teal">🐕‍🦺</div><div class="item-b"><div class="item-t">Back door — automatic dog-door opener</div>
+      <div class="item-d">The back door has an <strong>Olide automatic swing-door opener</strong> set up for Nuvi, so he can let himself <strong>in and out</strong> and the door doesn't stay open. It has <strong>two motion sensors — one outside, one inside</strong>.</div>
+      <div class="callout warn"><strong>If the door keeps opening &amp; closing nonstop</strong> (or when Nuvi's wet and you don't want it triggering): <strong>switch the motion sensor OFF</strong>. When it's off, the sensor doesn't detect movement, so the door just <strong>stays closed</strong>. Flip it back ON when you're done.</div>
+      <figure class="mapfig" style="text-align:center;">
+        <img class="photo" src="pet-sensor.webp" alt="Olide wireless pet sensor" style="max-width:200px;max-height:200px;margin:0 auto;background:#fff;border-radius:12px;">
+        <figcaption class="mapcap">This is the Olide pet sensor (one inside, one outside). Its <strong>on/off switch is on the unit</strong> — flip it to <strong>OFF</strong> to stop the door triggering.</figcaption>
+      </figure>
+      <div class="qs-grid" style="margin-top:8px;">
+        <div class="qs" style="background:#EAF3DE;"><div class="qh" style="color:#3A6410;">🟢 ON</div><div class="qd">Detects movement → the door <strong>opens</strong>.</div></div>
+        <div class="qs" style="background:#FCEBEB;"><div class="qh" style="color:#8A3013;">🔴 OFF</div><div class="qd">No detection → the door <strong>stays closed</strong>.</div></div>
+      </div>
+      <div class="item-d" style="margin-top:4px;font-size:11.5px;">Reference: <a class="addr" href="https://www.olidesmart.com/collections/automatic-swing-door-opener">Olide swing-door opener</a> · <a class="addr" href="https://www.olidesmart.com/products/wireless-pet-sensor">wireless pet sensor</a></div>
+    </div></div>
     <div class="item"><div class="item-ic bg-coral">📹</div><div class="item-b"><div class="item-t">Security / cameras</div><div class="item-d">No alarm. There are <strong>4 cameras</strong> — front doorbell, garage, backyard, and his crate. You're welcome to <strong>unplug the crate camera</strong> if you'd prefer.</div></div></div>
     <div class="item"><div class="item-ic bg-teal">🌡️</div><div class="item-b"><div class="item-t">Air conditioning</div><div class="item-d">Each room has its <strong>own controller</strong>. The living room has <strong>two wall units</strong> — point the <strong>Bosch remote</strong> at <strong>each one</strong> to turn it on/off. Keep the house cool for Nuvi on hot days.</div>
       <figure class="mapfig" style="text-align:center;"><img class="photo" src="bosch.jpg" alt="Bosch AC remote" style="max-width:240px;max-height:240px;margin:0 auto;" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"><div class="photo" style="aspect-ratio:16/9;display:none;"><span class="pi">🎛️</span><span class="pt">Photo: the Bosch AC remote — save as bosch.jpg</span></div></figure></div></div>
@@ -590,6 +603,22 @@ footer .paw{font-size:16px;}
 </div>
 
 <script>
+// ─────────────────────────────────────────────────────────────
+// NAV SCROLL-SPY — highlight only the chip for the section in view.
+// ─────────────────────────────────────────────────────────────
+(function navSpy(){
+  const links=[...document.querySelectorAll('.nav a')];
+  function setActive(id){links.forEach(a=>a.classList.toggle('active', a.getAttribute('href').slice(1)===id));}
+  const sections=links.map(a=>document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
+  const obs=new IntersectionObserver((entries)=>{
+    let best=null;
+    entries.forEach(e=>{if(e.isIntersecting && (!best || e.boundingClientRect.top<best.boundingClientRect.top)) best=e;});
+    if(best) setActive(best.target.id);
+  },{rootMargin:'-64px 0px -72% 0px',threshold:0});
+  sections.forEach(s=>obs.observe(s));
+  links.forEach(a=>a.addEventListener('click',()=>setActive(a.getAttribute('href').slice(1))));
+})();
+
 // ─────────────────────────────────────────────────────────────
 // LIVE AGE — years & months from date of birth, updates daily.
 // ─────────────────────────────────────────────────────────────
